@@ -1,0 +1,505 @@
+body {
+  font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  padding-top: 54px;
+  color: #868e96;
+  background-color: rgb(12, 12, 12);
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 0;
+    padding-left: 17rem;
+  }
+}
+
+@font-face {
+  font-family: 'Comforta';
+  src:
+  url("../fonts/Comfortaa-VariableFont_wght.woff") format("woff"),
+  url("../fonts/Comfortaa-VariableFont_wght.otf") format("opentype");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-weight: 700;
+  text-transform: uppercase;
+  color:#f0f0f0;
+  /*color: #343a40;*/
+}
+
+.comforta-font{
+  font-family:'Comforta' !important;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 6rem;
+  line-height: 5.5rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p.lead {
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+
+.subheading {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-size: 1.5rem;
+}
+
+.linktree-icon{
+  background-image: url("img/linktree-icon.png");
+}
+
+.social-icons a {
+  display: inline-block;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: rgb(255, 253, 238);
+  color: #de528a !important;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 3.5rem;
+  margin-right: 1rem;
+}
+
+.social-icons a:last-child {
+  margin-right: 0;
+}
+
+.social-icons a:hover {
+  background-color: #ffcbe0;
+}
+
+.dev-icons {
+  font-size: 3rem;
+}
+
+.dev-icons .list-inline-item i:hover {
+  color: #a85375;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link {
+  font-weight: 800;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  outline:none;
+  border: 0;
+}
+
+.nav-item-bottom{
+	margin-top:40% !important;
+}
+
+#sideNav .navbar-toggler:focus {
+  outline-color: #d48a6e;
+}
+
+@media (min-width: 992px) {
+  #sideNav {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 17rem;
+    height: 100vh;
+  }
+  #sideNav .navbar-brand {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: auto auto 0;
+    padding: 0.5rem;
+  }
+  #sideNav .navbar-brand .img-profile {
+    max-width: 12rem;
+    max-height: 12rem;
+    /*border: 0.5rem solid rgba(255, 255, 255, 0.2);*/
+  }
+
+  .img-profile{
+    filter:brightness(0.93);
+    transition:0.4s;
+  }
+
+  .img-profile:hover{
+    filter:brightness(1.13);
+  }
+
+  #sideNav .navbar-collapse {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    width: 100%;
+    margin-bottom: auto;
+  }
+  #sideNav .navbar-collapse .navbar-nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+  }
+  #sideNav .navbar-collapse .navbar-nav .nav-item {
+    display: block;
+  }
+  #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
+    display: block;
+  }
+}
+
+section.resume-section {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+  /* max-width: 75rem; */
+}
+
+section.resume-section .resume-item .resume-date {
+  min-width: none;
+}
+
+@media (min-width: 768px) {
+  section.resume-section {
+    min-height: 100vh;
+  }
+  section.resume-section .resume-item .resume-date {
+    min-width: 18rem;
+  }
+}
+
+@media (min-width: 992px) {
+  section.resume-section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
+.bg-primary {
+    /*background-color: #BD5D38 !important;*/
+    /*background-color: #de528a !important;*/
+    background-color: #111 !important;
+}
+
+.text-primary {
+    /*color: #BD5D38 !important;*/
+   /* color: #de528a !important;*/
+   color: #de528a !important; 
+}
+
+a {
+  color: #a85375;
+}
+
+a:hover, a:focus, a:active {
+  color: #a85375;
+}
+
+.pinkline{
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color:#de528a;
+  height: 1px;
+}
+
+.lowercase-title{
+   text-transform: unset !important;
+}
+
+.project-rect{
+    width:85%;
+    height:16vh;
+    object-fit: cover;
+    border-radius:3px;
+    margin-bottom:2vh;
+    border: solid rgb(0, 0, 0, 0.1) 1px;
+}
+
+/* Tooltip container */
+.rect-tooltip {
+  color:white !important;
+  filter: grayscale(75%);
+  transition:0.6s;
+}
+
+/* Tooltip text */
+    .rect-tooltip .tooltiptext {
+        visibility: hidden;
+        height: 16vh;
+        width: 20%;
+        /*background-color: #de528a;*/
+        border-style: solid;
+        border-width: 0px 0px 0px 5px;
+        border-color: #de528a;
+        color: white;
+        padding: 3px;
+        border-radius: 1px;
+        margin-left: 8px;
+        position: absolute;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+
+/* Show the tooltip text when you mouse over the tooltip container */
+    .rect-tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+        font-size: 1.5em;
+        text-transform: uppercase;
+
+    }
+
+    .rect-tooltip:hover {
+        filter: unset;
+
+        cursor: pointer;
+    }
+
+
+/* Tooltip container */
+.icon-tooltip {
+    color: white !important;
+    filter: grayscale(100%);
+    transition: 0.8s;
+}
+
+    /* Tooltip text */
+    .icon-tooltip .icon-tooltiptext {
+        visibility: hidden;
+        height: 2.5rem;
+        width: 8vw;
+        margin-left: -3.1rem;
+	    	margin-top: 25px;
+        background-color: #de528a;
+        border-style: solid;
+        border-width: 0px 0px 0px 0px;
+        border-color: #de528a;
+        color: white;
+        padding: 3px;
+        padding-top:0;
+        border-radius: 2px;
+        float:left;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.5s;
+        font-size: .7rem;
+    }
+
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .icon-tooltip:hover .icon-tooltiptext {
+        visibility: visible;
+        opacity: 1;
+        text-transform: uppercase;
+    }
+
+    .icon-tooltip:hover {
+        filter: unset;
+        cursor: pointer;
+    }
+
+/*================================================= ANIMATIONS ===================================================*/
+
+.hovericon {
+    border-radius: 0 !important;
+    border: 0px !important;
+    border-color: #de528a !important;
+    transition: .5s;
+}
+
+.hovericon:hover {
+        border-radius: 50% !important;
+        border: 5px !important;
+        border-color: #de528a !important;
+    }
+
+.fade-in {
+    opacity: 0 ;
+    animation-name: fadein;
+    animation-delay: 0.3s;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+.animate-text-1 {
+    opacity: 0;
+    -webkit-animation-name: text1; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-delay: 0.3s; /* Safari 4.0 - 8.0 */
+    animation-name: text1;
+    animation-delay: 0.3s;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+.animate-line-1 {
+    width: 30vw;
+    height: 3px;
+    position: fixed;
+    border-radius: 3px;
+    background-color: #de528a;
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-delay: 0s; /* Safari 4.0 - 8.0 */
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+.line1 {
+    transform: rotate(-45deg);
+    top: 107vh;
+    left: 80vw;
+    animation-name: lineright;
+    animation-duration: 1s;
+}
+.line2 {
+    transform: rotate(-45deg);
+    top: 110vh;
+    left: 88vw;
+    animation-name: lineright;
+    animation-duration: 2s;
+}
+.line3 {
+    transform: rotate(-45deg);
+    top: 100vh;
+    left: 90vw;
+    animation-name: lineright;
+    animation-duration: 1.5s;
+}
+.line4 {
+    transform: rotate(-45deg);
+    top: 85vh;
+    left: 45vw;
+    animation-name: lineleft;
+    animation-duration: 1s;
+}
+
+.line5 {
+    transform: rotate(-45deg);
+    top: 88vh;
+    left: 55vw;
+    animation-name:lineleft;
+    animation-duration: 2s;
+}
+
+.line6 {
+    transform: rotate(-45deg);
+    top: 83vh;
+    left: 50vw;
+    animation-name: lineleft;
+    animation-duration: 1.5s;
+}
+
+/*keyframes*/
+@keyframes lineright {
+    0% {
+        transform: translate(-500px,-500px) rotate(45deg);
+        background-color: #de528a;
+        opacity:0;
+    }
+
+    50% {
+        transform: translate(0px,0px) rotate(45deg);
+        background-color: #de528a;
+        opacity: 1;
+    }
+
+    55% {
+        background-color: white;
+    }
+
+    75% {
+        background-color: #de528a;
+    }
+
+    100% {
+        transform: translate(0px,0px) rotate(45deg);
+        background-color: #de528a;
+        opacity: 1;
+    }
+}
+@keyframes lineleft{
+    0% {
+        transform: translate(500px,500px) rotate(-45deg);
+        background-color: #de528a;
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(0px,0px) rotate(-45deg);
+        background-color: #de528a;
+        opacity: 1;
+    }
+
+    55% {
+        background-color: white;
+    }
+
+    75% {
+        background-color: #de528a;
+    }
+
+    100% {
+        transform: translate(0px,0px) rotate(-45deg);
+        background-color: #de528a;
+        opacity: 1;
+    }
+}
+@keyframes text1 {
+    0% {
+        letter-spacing: 50px;
+        opacity: 0;
+    }
+    50% {
+        letter-spacing: normal;
+    }
+    100% {
+        opacity:1;
+    }
+}
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+

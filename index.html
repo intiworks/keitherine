@@ -1,0 +1,581 @@
+﻿<!DOCTYPE html>
+
+<!-- MODAL -->
+<script>
+///////START CREATE THE MODAL - WAIT FOR WINDOW TO LOAD////////
+  var samplesSize = 6;
+  var modalNumber = 1;
+window.onload = function() {
+  //<div id="myModal" class="lightboxmodal">
+  var myModal = document.createElement("div");
+  myModal.id = "myModal";
+  myModal.className = "lightboxmodal";
+  
+  var modalBg = document.createElement("div");
+  modalBg.id = "modalBg";
+  modalBg.className = "modal-bg";
+  modalBg.onclick = function() { closeModal(); }
+  myModal.appendChild(modalBg);
+
+  //<span class="close cursor" onclick="closeModal()">&times;</span>
+  var closemodal = document.createElement("span");
+  closemodal.onclick = function() { closeModal(); }
+  closemodal.innerHTML = "&times;";
+  closemodal.className = "close cursor";
+  myModal.appendChild(closemodal);
+
+  //<div class="modalcontent">
+  var modalContent = document.createElement("div");
+  modalContent.className = "modalcontent";
+  myModal.appendChild(modalContent);
+
+  //<div class="mySlides">
+  //  <div class="numbertext">1 / 4</div>
+  //  <img src="img/modal3/1.jpg" class="modal-img" id="slide1">
+  //</div>
+  var i = 1;
+  for (let index = 1; index <= samplesSize; index++) {
+      var mySlides = document.createElement("div");
+      mySlides.className = "mySlides";
+      modalContent.appendChild(mySlides);
+
+      var numberText = document.createElement("div");
+      numberText.className = "numbertext";
+      numberText.innerHTML = index + " / " + samplesSize;
+      mySlides.appendChild(numberText);
+
+      var img = document.createElement("img");
+      img.src = "img/modal" + modalNumber + "/" + index + ".jpg";
+      img.className ="modal-img";
+      img.id = "slide"+index;
+      mySlides.appendChild(img);
+  }
+
+  //<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  //<a class="next" onclick="plusSlides(1)">&#10095;</a>
+  var prev = document.createElement("a");
+  prev.className = "prev";
+  prev.onclick = function() { plusSlides(-1); }
+  prev.innerHTML = "&#10094;";
+
+  var next = document.createElement("a");
+  next.className = "next";
+  next.onclick = function() { plusSlides(1); }
+  next.innerHTML = "&#10095;";
+
+  modalContent.appendChild(prev);
+  modalContent.appendChild(next);
+
+  //<div class="caption-container">
+  //  <p id="caption"></p>
+  //</div>
+  var captioncontainer = document.createElement("div");
+  captioncontainer.className = "caption-container";
+  modalContent.appendChild(captioncontainer);
+
+  var caption = document.createElement("p");
+  caption.id = "caption";
+  captioncontainer.appendChild(caption);
+
+  //<div class="modalcolumn">
+  //    <img class="thumbs" src="img/modal3/1.jpg" onclick="currentSlide(1)" alt="1">
+  //</div>
+  for (let index = 1; index <= samplesSize; index++) {
+      var modalColumn = document.createElement("div");
+      modalColumn.className = "modalcolumn";
+      modalContent.appendChild(modalColumn);
+
+      var thumbs = document.createElement("img");
+      thumbs.className = "thumbs";
+      thumbs.src = "img/modal" + modalNumber + "/" + index + ".jpg";
+      thumbs.onclick = function() { currentSlide(index); }
+      thumbs.alt = index;
+      thumbs.id = "thumbs"+index;
+      modalColumn.appendChild(thumbs);
+  }
+
+  document.getElementById("page-top").appendChild(myModal);
+}
+///////END CREATE THE MODAL////////
+
+// Open the Modal
+var currModal;
+function openModal(number, imgAmount) {
+    modalNumber = number; //Sets the current modal folder to display
+    var i = 1;
+    var loaderIcon = document.getElementById("loadericon");
+    loaderIcon.style.display = "inline-block";
+    for (let index = 1; index <= imgAmount; index++) { //Updates all the modal images to get them from the new folder
+      var img = document.getElementById("slide"+index);
+      img.src = "img/modal" + modalNumber + "/" + index + ".jpg";
+      var thumbs = document.getElementById("thumbs"+index);
+      thumbs.src = "img/modal" + modalNumber + "/" + index + ".jpg";
+      if(index==imgAmount){
+        img.onload = function() { document.getElementById("myModal").style.display = "block"; loaderIcon.style.display = "none"; }
+      }
+    }
+    //document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("thumbs");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "block";
+  slides[slideIndex - 1].src = "img/modal1/1.jpg";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>keitherine</title>
+  <link rel="icon" href="img/iconsmall.ico">
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+
+  <!-- Custom styles -->
+  <link href="css/resume.css" rel="stylesheet">
+  <link href="css/keitherine.css" rel="stylesheet">
+  <link href="css/modal.css" rel="stylesheet">
+  <link href="css/contact.css" rel="stylesheet">
+  <link href="css/loader.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">keitherine</span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2 fade-in" src="img/icon/icon_border.png" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">About me</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#proyectos">My art</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#commissions">Commissions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#terms">Terms & pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#merch">Merch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger request-commission navbar-commission" href="#request">Request commission!</a>
+        </li>
+        <li class="nav-item nav-item-bottom">
+          <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="parallax parallax-bg home-bg" data-rellax-speed="3"></div>
+  <div class="container-fluid p-0">
+<!--   <div class="by-inti color-white">by <a href="https://intiworks.com/"  target="_blank" class="color-pink">Inti</a></div> -->
+    
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center section-keitherine" id="keitherine">
+      <div class="w-100 w-100-home">
+        <div class="home-rect fade-in rellax">
+        <h1 class="mb-0 animate-text-1 lowercase-title">Keitherine</h1>
+        <div class="subheading mb-5 fade-in center-mobile">
+          Digital · Traditional Artist
+        </div>
+        <p class="lead fade-in center-mobile" style="margin-bottom: 0!important;"><i>Commissions open!</i></p>
+        <a class="nav-link js-scroll-trigger request-commission request-commission-mobile visible-mobile" href="#request" style="text-align: center;">Request commission!</a>
+        <p class="lead lead-bottom fade-in"></p>
+
+        <div class="social-icons fade-in center-mobile">
+            <a href="https://www.instagram.com/keitherine_/"  target="_blank" class="icon-tooltip">
+                <i class="fab fa-instagram"></i>
+                <span class="icon-tooltiptext">Instagram</span>
+            </a>
+            <a href="https://www.redbubble.com/people/Keitherine-art/shop?asc=u"  target="_blank" class="icon-tooltip">
+                <i class="fa fa-store"></i>
+                <span class="icon-tooltiptext">Merch</span>
+            </a>
+            <a href="https://www.pixiv.net/en/users/28727219"  target="_blank" class="icon-tooltip">
+              <i class="fa fa-pen"></i>
+              <span class="icon-tooltiptext">Pixiv</span>
+          </a>
+          <a href="https://ko-fi.com/keitherineart"  target="_blank" class="icon-tooltip">
+            <i class="fa fa-heart"></i>
+            <span class="icon-tooltiptext">Ko-fi</span>
+          </a>
+        </div><!-- end socials -->
+        </div><!-- end rect -->
+      </div><!-- end w100 -->
+    </section>
+    <hr class="m-0">
+    
+  <section class="resume-section p-3 p-lg-5 d-flex align-items-center section-about" id="about">
+      <div class="w-100">
+          <h2 class="lowercase-title">About me</h2>
+            <br><br><br>
+      		<h3 class="color-white quote-text">
+      		<i>Katherine<br> <span class="color-black">Satrano</span></i>
+      		</h3>
+			<div class="quote-img quote-img-1"></div>
+			<br><br>
+          	<span class="color-white">
+          	My name is Katherine Satrano, I’m a 24 year old digital artist from Uruguay. For as long as I can remember art has been my passion, particularly illustration. During the past 3 years I’ve put special attention to making art not only a hobby, but a career. Below you will find samples of my art as well as information on how to commission me to give you a special piece of your own. To be a professional illustrator is my dream so thank you so much for taking the time to check out my website!
+			</span>
+<!--           <img src="img/requestbg.png" alt="" class="bgimage fade-in"/> -->
+      </div>
+  </section>
+
+  <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center section-proyectos" id="proyectos"> <!--justify-content-center-->
+      <div class="w-100">
+            <h2 class="mb-5 lowercase-title">My art</h2>
+            <div class="rect-tooltip">
+                <img src="img/modal1/2.jpg" onclick="openModal('1', '6');currentSlide(1)" class="project-rect" style="object-position: 50% 63%;">
+                <span class="tooltiptext">Kei style</span>
+            </div>
+            <div class="rect-tooltip">
+                <img src="img/modal2/4.jpg"  onclick="openModal('2', '6');currentSlide(1)" class="project-rect" style="object-position: 50% 30%;">
+                <span class="tooltiptext">B&W / Manga</span>
+            </div>
+            <div class="rect-tooltip">
+                <img src="img/modal3/6.jpg" onclick="openModal('3', '6');currentSlide(1)" class="project-rect" style="object-position: 50% 35%;">
+                <span class="tooltiptext">Sketches</span>
+            </div>
+            <div class="rect-tooltip">
+                <img src="img/modal4/5.jpg" onclick="openModal('4', '6');currentSlide(1)" class="project-rect" style="object-position: 50% 40%;">
+                <span class="tooltiptext">Chibis</span>
+            </div>
+          <br><br><br><br><br><br><br>
+            <span class=""> You can check my <a href="https://www.instagram.com/keitherine_/"  target="_blank">Instagram</a> and <a href="https://www.pixiv.net/en/users/28727219"  target="_blank">Pixiv</a> for even more art and regular updates!</span>
+        </div>
+        
+    </section>
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center section-commissions" id="commissions">
+      <div class="w-100">
+        <h2 class="mb-5 lowercase-title">Commissions</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0 color-keitherine-pink lowercase-title">Keitherine's commission info</h3>
+            <div>Thank you for taking interest in my art! 
+              Here’s all you need to know about commissioning me, so please take your time to read.
+              
+              For any other questions you might have, 
+              you can contact me through my contact form or email.
+            </div>
+              <br>
+            <h3 class="mb-0 color-white lowercase-title">Guidelines</h3>
+            <b class="color-white">I usually draw</b>
+            <ul>
+            	<li>Original characters</li>
+            	<li>Real people in my style</li>
+            	<li>Fanart</li>
+            	<li>Twitch emotes/avatars</li>
+            	<li>...and much more!</li>
+            </ul>
+            
+            <br>
+			<div class="quote-img quote-img-2"></div>
+			<br><br>
+            
+            <h3 class="mb-0 lowercase-title">How does it work?</h3>
+            After the payment is confirmed I will start working on a rough sketch,
+            either digital or traditional. This part of the process will require your help to make sure
+            everything is in line with what you have envisioned.
+            <br>
+            After we have nailed down the general themes and ideas in the sketch, I will begin working on the lineart.
+            I will periodically ask for your feedback to ensure everything is to your liking and is consistent with previously discussed themes.
+            The more detailed you are with what you want, the easier it will be to match your expectations, reference pictures are especially
+            helpful with this. 
+            <br>
+            Once the commission is finished, and everything is to your liking, I will send you the finished piece via email
+            to preserve image quality.
+            <br><br>
+            <h3 class="mb-0 lowercase-title">Customization options</h3>
+            <ul>
+              <li>You can choose face angle, expression, pose, etc.</li>
+              <li>If it’s something too specific, I will need a reference picture to work with, especially when doing complex poses.</li>
+              <li>If you need a specific canvas/image resolution size, let me know and I will work on that resolution for you. Format can be .jpg or .png. That is also up to you. </li>
+            </ul> 
+            <b>The more detailed you are with what you want, the better. </b>
+            <br>
+            Reference pictures are always welcome. Give me as much guidance and details about what you want so we can come up with what you have in mind. This will save us a lot of time too. I want you to be happy with the final artwork! 
+          </div>
+        </div>
+        
+          <div class="resume-date text-md-right">
+            <span class="text-primary">
+            <br>
+            <a class="nav-link js-scroll-trigger request-commission" href="#request" style="text-align: center;">Request commission!</a>
+            </span>
+          </div>
+      </div>
+      </div>
+    </section>
+    <hr class="m-0">
+    
+<!--     <br> -->
+<!-- 	<div class="quote-img quote-img-3 parallax "></div> -->
+<!--     <br><br> -->
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center section-terms" id="terms">
+      <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+        <div class="resume-content">
+          <br>
+          <h2 class="mb-5 lowercase-title">Terms of service</h2>
+          <ul>
+            <li>  I only accept PayPal, and the payment must be done upfront, in full. I won’t work on the artwork until the payment is confirmed. If the price of your commission(s) exceeds $100, you can do half upfront if you prefer.</li>
+            <li>No refunds or cancellations.</li>
+            <li> Commissions are intended for personal use only. Do not edit my work and/or claim it as your own. If you need it for commercial use, we can talk about a price for you to purchase full copyright.</li>
+            <li>Be patient. I always try my best to not keep you waiting, but I don’t like rushing my work. Art takes time.</li>
+          </ul> 
+          <br>
+          <h3 class="mb-0 color-keitherine-pink lowercase-title">Pricing</h3>
+          <ul>
+            <div class="keitherine-row">
+              <div class="keitherine-column">
+
+                <li class="color-keitherine-pink"><b>Headshot $24</b></li>
+                <i>Close-up illustration of a full colored character, with a flat colored background (minimal detail, can be a gradient).</i>
+                <div class="keitherine-tooltipimg">
+                  <img src="img/samples/headshot01.png" alt="" class="keitherine-sampleimg"/>
+                  <span><img src="img/samples/headshot01.png" alt="" /></span>
+                </div>
+                <div class="keitherine-tooltipimg" style="left:50px; bottom: 65px; margin-bottom:-50px;">
+                  <img src="img/samples/headshot02.png" alt="" class="keitherine-sampleimg"/>
+                  <span><img src="img/samples/headshot02.png" alt="" /></span>
+                </div>
+
+                <li class="color-keitherine-pink"><b>Bust up $29</b></li>
+                <i>Chest-up illustration of a full colored character, with a flat colored background (minimal detail, can be a gradient).</i>
+                <div class="keitherine-tooltipimg">
+                  <img src="img/samples/bust01.png" alt="" class="keitherine-sampleimg"/>
+                  <span><img src="img/samples/bust01.png" alt="" /></span>
+                </div>
+                <div class="keitherine-tooltipimg"  style="left:50px; bottom: 65px; margin-bottom:-60px;">
+                  <img src="img/samples/bust02.png" alt="" class="keitherine-sampleimg"/>
+                  <span><img src="img/samples/bust02.png" alt="" /></span>
+                </div>
+                <div class="keitherine-tooltipimg"  style="left:100px; bottom: 60px; margin-bottom:-50px;">
+                  <img src="img/samples/bust03.png" alt="" class="keitherine-sampleimg"/>
+                  <span><img src="img/samples/bust03.png" alt="" /></span>
+                </div>
+
+                <li class="color-keitherine-pink"><b>Mid body $39</b></li>
+                <i> Waist/hips up illustration of a full colored character, with a flat colored background (minimal detail, can be a gradient).</i>
+                <div class="keitherine-tooltipimg" >
+                  <img src="img/samples/mid01.png" alt="" class="keitherine-sampleimg"/>
+                  <span class="follow-tooltip"><img src="img/samples/mid01.png" alt="" /></span>
+                </div>
+
+                <div class="keitherine-tooltipimg" style="left:50px; bottom: 65px; margin-bottom:-70px;" >
+                  <img src="img/samples/mid02.png" alt="" class="keitherine-sampleimg"/>
+                  <span class="follow-tooltip"><img src="img/samples/mid02.png" alt="" /></span>
+                </div>
+              </div>
+
+              <div class="keitherine-column">
+                <li class="color-keitherine-pink"><b>Full body $49</b></li>
+                <i>Full body illustration of a full colored character, with a flat colored background (minimal detail, can be a gradient).</i>
+
+                <div class="keitherine-tooltipimg">
+                  <img src="img/samples/full01.png" alt="" class="keitherine-sampleimg"/>
+                  <span><img src="img/samples/full01.png" alt="" /></span>
+                </div>
+
+                <div class="keitherine-tooltipimg" style="left:50px; bottom: 65px; margin-bottom:-60px;">
+                  <img src="img/samples/full02.png" alt="" class="keitherine-sampleimg"/>
+                  <span><img src="img/samples/full02.png" alt="" /></span>
+                </div>
+
+                <div class="keitherine-tooltipimg" style="left:100px; bottom:60px; margin-bottom:-50px;">
+                  <img src="img/samples/full03.png" alt="" class="keitherine-sampleimg"/>
+                  <span><img src="img/samples/full03.png" alt="" /></span>
+                </div>
+
+                <li class="color-keitherine-pink"><b>Full body Chibi $29</b></li>
+                <i>Full body illustration of a full colored character in my chibi style, with a flat colored background (minimal detail, can be a gradient).</i>
+                <div class="keitherine-tooltipimg">
+                  <img src="img/samples/chibi.png" alt="" class="keitherine-sampleimg"/>
+                  <span><img src="img/samples/chibi.png" alt="" /></span>
+                </div>
+
+            </div>
+          </ul> 
+          <div class="mobile-center"><span class="color-pink mobile-center"><b>Important notes about prices</b></span></div>
+          <div>
+            <div class="keitherine-row keitherine-smallerfont">
+              <div class="keitherine-column">
+                <ul>
+                  <li> Prices are for a single character illustration.</li>
+                   <li> Extra stuff than the main character in the piece will cost +$5. This includes things like flowers, plushies/animals, etc.</li>
+                 </ul>
+              </div>
+              <div class="keitherine-column">
+                <ul class=>
+                  <li>Extra character prices:</li>
+                  <li>Headshot: +$19</li>
+                  <li>Bust up: +$24</li>
+                  <li> Mid body: +$34</li>
+                  <li>Full body: +$39</li>
+                  <li> Full body chibi: +$24</li>
+                </ul>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+      <hr class="m-0">
+    </section>
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center section-merch" id="merch">
+     
+      <a href="https://www.redbubble.com/people/Keitherine-art/shop?asc=u"  target="_blank"><img src="img/merch.png" alt="" class="merchimg"/></a>
+
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center section-request" id="request" style="margin-bottom:-250px;">
+      <div class="w-100">
+        <h2 class="mb-5 lowercase-title">Request commission!</h2>
+        <div class="mobile-center"><span class="color-white mobile-center">Submit to request a commission!</span></div><br>
+        <i>Note: <br>
+          I will contact you by email once your request reaches me, with the price and/or further questions.<br>
+          Submit one time per each commission you wish to request. </i>
+        <br><br>
+
+          <form name="contact" method="POST" data-netlify="true">      
+			  <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+        <input name="email" type="text" class="feedback-input" placeholder="Email" />
+        <label for="commission-type">Choose a type:</label>
+        <select name="commission-type" id="commission-type" class="feedback-input" style="background-color:#0f0f0f" >
+          <option value="headshot" style="background-color:#0f0f0f">Headshot</option>
+          <option value="bust" style="background-color:#0f0f0f">Bust up</option>
+          <option value="mid" style="background-color:#0f0f0f">Mid body</option>
+          <option value="full" style="background-color:#0f0f0f">Full body</option>
+          <option value="chibi" style="background-color:#0f0f0f">Full body chibi</option>
+          <option value="other" style="background-color:#0f0f0f">Other (specify in comment)</option>
+        </select>
+        <textarea name="text" class="feedback-input" placeholder="Describe your commission request :)"></textarea>
+        <!--<label for="reference-image">Reference image (optional):</label>
+        <input type="file" name="reference-image" id="reference-image" class="feedback-input" accept="image/*"/>-->
+			  <input type="submit" value="SUBMIT"/>
+      </form>
+        </div> 
+
+    </section>
+    <img src="img/melody/melobirbty.png" alt="" class="melobirb"/>
+    <hr class="pinkline">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center section-contact" id="contact">
+      <div class="w-100">
+        <h2 class="mb-5 lowercase-title color-white">Get in touch</h2>
+        <div class="mobile-center"><span class="color-white">Questions, business, proposals...</span><br><br></div>
+        <form name="contact" method="POST" data-netlify="true">      
+			  <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+			  <input name="email" type="text" class="feedback-input" placeholder="Email" />
+			  <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+			  <input type="submit" value="SUBMIT"/>
+	    </form>
+        </div>
+
+    </section>
+
+    <hr class="m-0">
+    
+    <div class="keitherine-header" id="header">
+		<span class="keitherine-header-info">
+		<a class="color-white" href="https://linktr.ee/keitherine.art">Links & Socials</a>
+		 <b>|</b>
+		<a class="color-white" href="https://intiworks.com/">IntiWorks</a>
+		</span>
+	</div>
+    
+    <div class="keitherine-footer">
+		<span class="footer-info">
+		<a href="https://intiworks.com/"> by Inti</a>  | 
+		<a href="https://www.linkedin.com/in/inti/" target="_blank"> 
+            <i class="fab fa-linkedin-in"></i> 
+        </a>
+        <a href="https://www.twitter.com/snepif" target="_blank"> 
+            <i class="fab fa-twitter"></i> 
+        </a> 
+		</span>
+	</div>
+    
+      <!--ANIMATIONS AND ADDED STUFF-->
+      <div style="position:fixed; background-color:#0f0f0f; width:150vw; height: 150vh; left:0; top:0; z-index: -10;"></div>
+    
+    <div class="lds-ripple" id="loadericon"><div></div><div></div></div>
+<!-- -------------------------------- -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/resume.min.js"></script>
+  <script src="js/navbaropacity.js"></script>
+  <script src="js/rellax.min.js"></script>
+  <script>
+	  var rellax = new Rellax('.rellax');
+	</script>
+
+</body>
+
+</html>
