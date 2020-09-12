@@ -71,7 +71,7 @@ p.lead {
   height: 3.5rem;
   width: 3.5rem;
   background-color: rgb(255, 253, 238);
-  color: #de528a !important;
+  color: var(--palette-e) !important;
   border-radius: 100%;
   text-align: center;
   font-size: 1.5rem;
@@ -84,7 +84,7 @@ p.lead {
 }
 
 .social-icons a:hover {
-  background-color: #ffcbe0;
+  background-color: var(--palette-c);
 }
 
 .dev-icons {
@@ -92,7 +92,7 @@ p.lead {
 }
 
 .dev-icons .list-inline-item i:hover {
-  color: #a85375;
+  color: var(--palette-c);
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
@@ -108,7 +108,7 @@ p.lead {
 }
 
 #sideNav .navbar-toggler:focus {
-  outline-color: #d48a6e;
+  outline-color: var(--palette-c);
 }
 
 @media (min-width: 992px) {
@@ -205,22 +205,22 @@ section.resume-section .resume-item .resume-date {
 
 .bg-primary {
     /*background-color: #BD5D38 !important;*/
-    /*background-color: #de528a !important;*/
-    background-color: #111 !important;
+    /*background-color: var(--palette-e) !important;*/
+    background-color: var(--palette-a) !important;
 }
 
 .text-primary {
     /*color: #BD5D38 !important;*/
-   /* color: #de528a !important;*/
-   color: #de528a !important; 
+   /* color: var(--palette-e) !important;*/
+   color: var(--palette-e) !important; 
 }
 
 a {
-  color: #a85375;
+  color: var(--palette-c);
 }
 
 a:hover, a:focus, a:active {
-  color: #a85375;
+  color: var(--palette-c);
 }
 
 .pinkline{
@@ -228,7 +228,7 @@ a:hover, a:focus, a:active {
   clear:both;
   display:block;
   width: 96%;               
-  background-color:#de528a;
+  background-color:var(--palette-e);
   height: 1px;
 }
 
@@ -257,10 +257,10 @@ a:hover, a:focus, a:active {
         visibility: hidden;
         height: 16vh;
         width: 20%;
-        /*background-color: #de528a;*/
+        /*background-color: var(--palette-e);*/
         border-style: solid;
         border-width: 0px 0px 0px 5px;
-        border-color: #de528a;
+        border-color: var(--palette-e);
         color: white;
         padding: 3px;
         border-radius: 1px;
@@ -301,10 +301,10 @@ a:hover, a:focus, a:active {
         width: 8vw;
         margin-left: -3.1rem;
 	    	margin-top: 25px;
-        background-color: #de528a;
+        background-color: var(--palette-e);
         border-style: solid;
         border-width: 0px 0px 0px 0px;
-        border-color: #de528a;
+        border-color: var(--palette-e);
         color: white;
         padding: 3px;
         padding-top:0;
@@ -333,14 +333,14 @@ a:hover, a:focus, a:active {
 .hovericon {
     border-radius: 0 !important;
     border: 0px !important;
-    border-color: #de528a !important;
+    border-color: var(--palette-e) !important;
     transition: .5s;
 }
 
 .hovericon:hover {
         border-radius: 50% !important;
         border: 5px !important;
-        border-color: #de528a !important;
+        border-color: var(--palette-e) !important;
     }
 
 .fade-in {
@@ -372,7 +372,7 @@ a:hover, a:focus, a:active {
     height: 3px;
     position: fixed;
     border-radius: 3px;
-    background-color: #de528a;
+    background-color: var(--palette-e);
     -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
     -webkit-animation-delay: 0s; /* Safari 4.0 - 8.0 */
     animation-duration: 2s;
@@ -431,13 +431,13 @@ a:hover, a:focus, a:active {
 @keyframes lineright {
     0% {
         transform: translate(-500px,-500px) rotate(45deg);
-        background-color: #de528a;
+        background-color: var(--palette-e);
         opacity:0;
     }
 
     50% {
         transform: translate(0px,0px) rotate(45deg);
-        background-color: #de528a;
+        background-color: var(--palette-e);
         opacity: 1;
     }
 
@@ -446,25 +446,25 @@ a:hover, a:focus, a:active {
     }
 
     75% {
-        background-color: #de528a;
+        background-color: var(--palette-e);
     }
 
     100% {
         transform: translate(0px,0px) rotate(45deg);
-        background-color: #de528a;
+        background-color: var(--palette-e);
         opacity: 1;
     }
 }
 @keyframes lineleft{
     0% {
         transform: translate(500px,500px) rotate(-45deg);
-        background-color: #de528a;
+        background-color: var(--palette-e);
         opacity: 0;
     }
 
     50% {
         transform: translate(0px,0px) rotate(-45deg);
-        background-color: #de528a;
+        background-color: var(--palette-e);
         opacity: 1;
     }
 
@@ -473,12 +473,12 @@ a:hover, a:focus, a:active {
     }
 
     75% {
-        background-color: #de528a;
+        background-color: var(--palette-e);
     }
 
     100% {
         transform: translate(0px,0px) rotate(-45deg);
-        background-color: #de528a;
+        background-color: var(--palette-e);
         opacity: 1;
     }
 }
